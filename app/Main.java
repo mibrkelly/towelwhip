@@ -1,4 +1,4 @@
-package cherno;
+package app;
 
 import javax.swing.JFrame;
 import java.awt.Canvas;
@@ -8,9 +8,9 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.awt.Color;
 import java.awt.Graphics;
-import cherno.graphics.Screen;
+import app.graphics.Screen;
 
-public class Game extends Canvas implements Runnable {
+public class Main extends Canvas implements Runnable {
 	public static final long serialVersionUID = 1L;
 
 	public static int width = 900;
@@ -25,7 +25,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 
-	public Game() {
+	public Main() {
 		Dimension size = new Dimension(width, height);
 		setPreferredSize(size);
 
@@ -106,16 +106,16 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public static void main (String[] args) {
-		Game game = new Game();	
-		game.frame.setResizable(false);
-		game.frame.setTitle("Rain");
-		game.frame.add(game);
-		game.frame.pack();
-		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		game.frame.setLocationRelativeTo(null);
-		game.frame.setVisible(true);
+		Main app = new Main();	
+		app.frame.setResizable(false);
+		app.frame.setTitle("Rain");
+		app.frame.add(app);
+		app.frame.pack();
+		app.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		app.frame.setLocationRelativeTo(null);
+		app.frame.setVisible(true);
 
-		game.start();
+		app.start();
 	}
 
 }

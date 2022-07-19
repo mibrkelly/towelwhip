@@ -1,6 +1,7 @@
 // https://www.partitionwizard.com/partitionmanager/javac-not-recognized-win10.html
 // set path="C:\Program Files\Java\jdk-18.0.1.1\bin"
 
+
 /*
 Trying to remember comments
 */
