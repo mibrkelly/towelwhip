@@ -16,15 +16,19 @@ public class Screen {
 		this.height = height;
 		pixels = new int[width][height];
 
-		for (int i = 0; i < 64 * 64; i++) {
-			tiles[i] = random.nextInt(0xffffff);
+		for (int i = 0; i < 64; i++) {
+			for (int j = 0; j < 64; j++) {
+				tiles[i][j] = random.nextInt(0xffffff);
+			}
 		}
 
 	}
 
 	public void clear() {
-		for (int i = 0; i < pixels.length; i++) {
-			pixels[i] = 0;
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				pixels[i][j] = 0;
+			}
 		}
 	}
 

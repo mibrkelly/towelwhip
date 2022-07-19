@@ -8,7 +8,10 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyListener;
+
 import cherno.graphics.Screen;
+import cherno.input.Keyboard;
 
 public class Game extends Canvas implements Runnable {
 	public static final long serialVersionUID = 1L;
@@ -20,6 +23,7 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private JFrame frame;
+	private Keyboard key;
 	private boolean running = false;
 
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -32,6 +36,9 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 
 		frame = new JFrame();
+
+		key = new Keyboard();
+		addKeyListener(key); // Make sure this is called after the keyboard is created
 	}
 
 	public synchronized void start() {
@@ -78,7 +85,11 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public void update() {
+		key.update();
 
+		if (key.up) {
+			// do something
+		}
 	}
 
 	public void render() {
@@ -91,10 +102,8 @@ public class Game extends Canvas implements Runnable {
 		screen.clear();
 		screen.render();
 
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				pixels[width*i+j] = screen.pixels[i][j];
-			}
+		for (int i = 0; i < pixels.length; i++) {
+			pixels[i] = screen.pixels[i % width][i / width];
 		}
 
 		Graphics g = bs.getDrawGraphics();
