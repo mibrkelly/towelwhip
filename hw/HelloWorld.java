@@ -6,7 +6,7 @@
 Trying to remember comments
 */
 
-package jv;
+package hw;
 
 class HelloWorld {
     public static void main(String[] args) {
