@@ -99,14 +99,16 @@ public class Main extends Canvas implements Runnable {
 		}
 
 		if (mouse.clicked) {
-			System.out.println("Clicked at: " + mouse.clickX + " " + mouse.clickY);
+			//System.out.println("Clicked at: " + mouse.clickX + " " + mouse.clickY);
 			mouse.clicked = false;
 		}
 		if (mouse.pressing) {
-			System.out.println("Pressed at: " + mouse.pressX + " " + mouse.pressY);
+			//System.out.println("Pressed at: " + mouse.pressX + " " + mouse.pressY);
+			screen.pixels[mouse.pressX][mouse.pressY] = 0xffffff;
 		}
 		if (mouse.dragging) {
-			System.out.println("Dragged at: " + mouse.dragX + " " + mouse.dragY);
+			//System.out.println("Dragged at: " + mouse.dragX + " " + mouse.dragY);
+			screen.pixels[mouse.dragX][mouse.dragY] = 0xffffff;
 		}
 		if (mouse.released) {
 			mouse.released = false;
@@ -123,7 +125,7 @@ public class Main extends Canvas implements Runnable {
 			return;
 		}
 
-		screen.clear();
+		//screen.clear();
 		screen.render();
 
 		for (int i = 0; i < pixels.length; i++) {

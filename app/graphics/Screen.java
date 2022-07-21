@@ -58,11 +58,10 @@ public class Screen {
 					//pixels[x][y] = testImagePixels[x][y]; // for png
 				//}
 				//else {
-					pixels[x][y] = 0x000000;
+				//	pixels[x][y] = 0x000000;
 				//}
 			}
 		}
-		System.out.println(pixels[0][0]);
 	}
 
 }
